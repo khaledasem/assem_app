@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include asem_app *.css
+recursive-include asem_app *.csv
+recursive-include asem_app *.html
+recursive-include asem_app *.ico
+recursive-include asem_app *.js
+recursive-include asem_app *.json
+recursive-include asem_app *.md
+recursive-include asem_app *.png
+recursive-include asem_app *.py
+recursive-include asem_app *.svg
+recursive-include asem_app *.txt
+recursive-exclude asem_app *.pyc
