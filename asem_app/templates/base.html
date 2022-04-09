@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!-- Built on Frappe. https://frappeframework.com/ -->
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="frappe">
+
+	{% block meta_block %}
+	{% include "templates/includes/meta_block.html" %}
+	{% endblock %}
+
+	<title>{% block title %}{{ title | striptags }}{% endblock %}</title>
+
+	{% block favicon %}
+	<link
+		rel="shortcut icon"
+		href="/assets/asem_app/images/YemenMobile_Logo-4.jpg"
+		type="image/x-icon"
+	>
+	
+	{% endblock %}
+
+	<link rel="canonical" href="{{ canonical }}">
+
+	{%- block head -%}
+	{% if head_html is defined -%}
+	{{ head_html or "" }}
+	{%- endif %}
+
+	{%- if theme.name != 'Standard' -%}
+	<link type="text/css" rel="stylesheet" href="{{ theme.theme_url }}">
+	{%- else -%}
+	<link type="text/css" rel="stylesheet" href="/assets/css/frappe-web-b4.css?ver={{ build_version }}">
+	{%- endif -%}
+
+	{%- for link in web_include_css %}
+	<link type="text/css" rel="stylesheet" href="{{ link|abs_url }}?ver={{ build_version }}">
+	{%- endfor -%}
+	{%- endblock -%}
+
+	{%- block head_include %}
+	{{ head_include or "" }}
+	{% endblock -%}
+
+	{%- block style %}
+	{% if colocated_css -%}
+	<style>{{ colocated_css }}</style>
+	{%- endif %}
+	{%- endblock -%}
+
+	<script>
+		window.frappe = {};
+		frappe.ready_events = [];
+		frappe.ready = function(fn) {
+			frappe.ready_events.push(fn);
+		}
+		window.dev_server = {{ dev_server }};
+		window.socketio_port = {{ (frappe.socketio_port or 'null') }};
+		window.show_language_picker = {{ show_language_picker }};
+	</script>
+</head>
+<body frappe-session-status="{{ 'logged-in' if frappe.session.user != 'Guest' else 'logged-out'}}" data-path="{{ path | e }}" {%- if template and template.endswith('.md') %} frappe-content-type="markdown" {%- endif %} class="{{ body_class or ''}}">
+	<!-- {% include "public/icons/timeless/symbol-defs.svg" %} -->
+	{%- block banner -%}
+	<!-- {% include "templates/includes/banner_extension.html" ignore missing %} -->
+
+	{% if banner_html -%}
+	{{ banner_html or "" }}
+	{%- endif %}
+	{%- endblock -%}
+
+	
+	<nav class="navbar navbar-light navbar-expand-lg">
+		<div class="container">
+			<a class="navbar-brand" href="/">
+				<img src="/assets/asem_app/images/YemenMobile_Logo-4.jpg"/></a>
+				<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+					<span>
+						<svg class="icon icon-lg">
+							<use href="#icon-menu"></use>
+						</svg>
+					</span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="ml-auto navbar-nav">
+						<!-- post login tools -->
+						<li class="nav-item dropdown logged-in" data-label="website-post-login" id="website-post-login" style="display: none">
+							<a class="nav-link nav-avatar" data-toggle="dropdown" href="#">
+								<span class="user-image-wrapper"></span>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-right" role="menu"><a class="dropdown-item" href="/me" rel="nofollow">
+								My Account
+							</a><a class="dropdown-item" href="/?cmd=web_logout" rel="nofollow">
+								Logout
+							</a><a class="dropdown-item switch-to-desk hidden" href="/app">Switch To Desk</a>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link btn-login-area" href="/login">Login</a>
+					</li>
+				</ul>
+			</div>
+			<div class="form-group mb-0 hide" id="language-switcher">
+				<select class="form-control"></select>
+			</div>
+		</div>
+	</nav>
+
+	{% block content %}
+	{{ content }}
+	{% endblock %}
+
+	{%- block footer -%}
+	<footer class="web-footer">
+			<div class="container">
+				<div class="footer-logo-extension">
+					<div class="row">
+						<div class="text-left col-md-6"></div>
+						<div class="text-right col-md-6">
+						</div>
+					</div>
+				</div>
+				<div class="footer-links">
+					<div class="row">
+						<div class="footer-col-left col-sm-6"></div>
+						<div class="footer-col-right col-sm-6"></div>
+					</div>
+				</div>
+				<div class="footer-info">
+					<div class="row">
+						<div class="footer-col-left col-sm-6 col-12">
+						</div>
+						<div class="footer-col-right col-sm-6 col-12 footer-powered">
+							<a class="text-muted" href="https://frappeframework.com?source=website_footer" target="_blank">
+							Yemen Mobole © 2022
+							
+						</a>
+						</div>
+					</div>
+				</div>
+			</div>
+	</footer>
+	{%- endblock -%}
+
+	{% block base_scripts %}
+	<!-- js should be loaded in body! -->
+	<script type="text/javascript" src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/js/frappe-web.min.js?ver={{ build_version }}"></script>
+	<script type="text/javascript" src="/assets/js/bootstrap-4-web.min.js"></script>
+	<script>
+		frappe.boot = {
+			sysdefaults: {
+				float_precision: parseInt("{{ frappe.get_system_settings('float_precision') or 3 }}"),
+				date_format: "{{ frappe.get_system_settings('date_format') or 'yyyy-mm-dd' }}",
+			}
+		};
+		// for backward compatibility of some libs
+		frappe.sys_defaults = frappe.boot.sysdefaults;
+	</script>
+	{% endblock %}
+
+	{%- for link in web_include_js %}
+	<script type="text/javascript" src="{{ link | abs_url }}?ver={{ build_version }}"></script>
+	{%- endfor -%}
+
+	{%- block script %}
+	{% if colocated_js -%}
+	<script>{{ colocated_js }}</script>
+	{%- endif %}
+	{%- endblock %}
+	<!-- csrf_token -->
+	{%- block body_include %}{{ body_include or "" }}{% endblock -%}
+</body>
+</html>

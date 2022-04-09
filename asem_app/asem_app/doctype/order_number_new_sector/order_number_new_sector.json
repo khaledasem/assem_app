@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-04-03 02:08:24.331301",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "order_number",
+  "year",
+  "number"
+ ],
+ "fields": [
+  {
+   "fieldname": "order_number",
+   "fieldtype": "Data",
+   "label": "order number",
+   "unique": 1
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "label": "year"
+  },
+  {
+   "fieldname": "number",
+   "fieldtype": "Data",
+   "label": "Number"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-04-03 02:48:52.308934",
+ "modified_by": "Administrator",
+ "module": "Asem App",
+ "name": "order_number_new_sector",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,30 @@
+{% extends "templates/web.html" %}
+
+{% block content %}
+	
+	<div style="text-align: center;">
+		<button style="width: 100px; height: 70px; font-size: 24px;" type="submit">
+		Login</button>
+
+		<a  href="/app">Switch To Desk</a>
+
+
+
+
+
+		<button id="myButton" class="float-left submit-button" >Home</button>
+
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "/app";
+    };
+</script>
+
+			
+	</div>
+	
+{% endblock %}
+
+
+
+<!-- m -->

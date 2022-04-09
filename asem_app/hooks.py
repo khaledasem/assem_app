@@ -5,10 +5,14 @@ app_title = "Asem App"
 app_publisher = "khaled asem"
 app_description = "s"
 app_icon = "octicon octicon-file-directory"
-app_color = "grey"
+app_color = "red"
 app_email = "a"
 app_license = "MIT"
 
+develop_version = '1.0.0-develop'
+source_link = "https://github.com/"
+app_logo_url = '/assets/asem_app/images/YemenMobile_Logo-4.jpg'
+# translator_url = "https://translate.erpnext.com"
 # Includes in <head>
 # ------------------
 
@@ -40,11 +44,11 @@ app_license = "MIT"
 # ----------
 
 # application home page (will override Website Settings)
-# home_page = "login"
+home_page = "Home"
 
 # website user home page (by Role)
 # role_home_page = {
-#	"Role": "home_page"
+# 	"PlanningRole": "/desk/planning"
 # }
 
 # Generators

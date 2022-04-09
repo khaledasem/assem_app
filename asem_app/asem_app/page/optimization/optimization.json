@@ -1,0 +1,26 @@
+{
+ "content": null,
+ "creation": "2022-03-23 00:18:55.280794",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2022-04-03 01:46:44.004597",
+ "modified_by": "Administrator",
+ "module": "Asem App",
+ "name": "optimization",
+ "owner": "Administrator",
+ "page_name": "optimization",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "optimization_role"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "optimization"
+}
