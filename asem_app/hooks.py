@@ -9,7 +9,7 @@ app_color = "red"
 app_email = "a"
 app_license = "MIT"
 
-develop_version = '1.0.0-develop'
+develop_version = '1.0.1 (version-1)'
 source_link = "https://github.com/"
 app_logo_url = '/assets/asem_app/images/YemenMobile_Logo-4.jpg'
 # translator_url = "https://translate.erpnext.com"

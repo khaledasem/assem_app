@@ -8,7 +8,7 @@ MyPage = Class.extend({
 	init: function(wrapper){
 		this.page = frappe.ui.make_app_page({
 			parent: wrapper,
-			title: 'Planning',
+			title: 'Optimization',
 			single_column: true
 
 		});

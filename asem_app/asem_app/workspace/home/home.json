@@ -13,7 +13,7 @@
  "is_standard": 1,
  "label": "Home",
  "links": [],
- "modified": "2022-04-02 01:31:38.528111",
+ "modified": "2022-06-19 22:24:46.642368",
  "modified_by": "Administrator",
  "module": "Asem App",
  "name": "Home",
@@ -23,20 +23,20 @@
  "shortcuts": [
   {
    "doc_view": "",
-   "label": "Please click here",
+   "label": "Planning Dep",
    "link_to": "planning",
+   "type": "Page"
+  },
+  {
+   "doc_view": "",
+   "label": "Optimization Dep",
+   "link_to": "optimization",
    "type": "Page"
   },
   {
    "doc_view": "",
    "label": "\u0627\u0646\u0642\u0631 \u0647\u0646\u0627 \u0645\u0646 \u0641\u0638\u0644\u0643",
    "link_to": "services",
-   "type": "Page"
-  },
-  {
-   "doc_view": "",
-   "label": "optimization",
-   "link_to": "optimization",
    "type": "Page"
   }
  ]

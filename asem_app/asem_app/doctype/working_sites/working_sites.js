@@ -9,7 +9,7 @@ frappe.ui.form.on('Working Sites', {
 
 	//--------------------------------------------------------
 		frm.from_survey_func(frm);
-		frm.city_onChange(frm);
+		frm.city_onChange(frm,'');
 		frm.btsVendor_onChange(frm);
 		frm.show_hide_bsc_msc_info(frm);
 		frm.fill_x_sevice_host_bsc(frm);
@@ -73,7 +73,14 @@ frappe.ui.form.on('Working Sites', {
 
 
 		//-------------------------------------------------------------------------------
-		frm.city_onChange = function(frm){
+		frm.city_onChange = function(frm,call_from){
+			if(call_from=='onChange'){
+				frm.doc.district=''
+				frm.doc.area_name=''
+				frm.refresh_field('district');
+				frm.refresh_field('area_name');
+			}
+
 			if(frm.doc.city){
 				frm.set_df_property('area', 'hidden', 0)
 
@@ -87,7 +94,7 @@ frappe.ui.form.on('Working Sites', {
 				// frm.doc.district=''
 				// frm.doc.area=''
 				frm.refresh_field('district');
-				frm.refresh_field('area');
+				frm.refresh_field('area_name');
 			}
 		},
 		//------------------------------------ end --------------------------------------
@@ -292,7 +299,7 @@ frappe.ui.form.on('Working Sites', {
 
 		//-------------- -------------------------------------------------------------------------
 	city: function(frm){
-		frm.city_onChange(frm);
+		frm.city_onChange(frm,'onChange');
 
 	},
    //---------------------------------------End----------------------------------------------

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:title",
+ "autoname": "field:order_no",
  "creation": "2022-02-28 18:45:40.689751",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -55,7 +55,8 @@
   {
    "fieldname": "order_no",
    "fieldtype": "Data",
-   "label": "\u0631\u0642\u0645 \u0627\u0644\u0645\u0630\u0643\u0631\u0629"
+   "label": "\u0631\u0642\u0645 \u0627\u0644\u0645\u0630\u0643\u0631\u0629",
+   "unique": 1
   },
   {
    "default": "Today",
@@ -268,7 +269,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-19 00:30:40.765338",
+ "modified": "2022-04-13 01:14:58.645735",
  "modified_by": "Administrator",
  "module": "Asem App",
  "name": "coverege_requests",
